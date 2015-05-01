@@ -24,11 +24,13 @@ and what you should write is the favNum function that makes the code above work,
 
 
 
-  //Code Here for first
+function first(thyArray,f){
+  f(thyArray[0]);
+}
   
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 first(names, function(firstName){
-  console.log('The first name in names is ', firstName)
+  console.log('The first name in names is ', firstName);
 });
 
 
@@ -38,7 +40,9 @@ first(names, function(firstName){
 
 
 
-  //Code Here for last
+function last(thyArray,f)}{
+  f(thyArray[thyArray.length-1]);
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 last(names, function(lastName){
@@ -56,7 +60,9 @@ last(names, function(lastName){
 
 
 
-  //Code Here for multiply
+function multiply(num1,num2,f){
+  f(num1*num2);
+}
 
 multiply(4, 3, function(answer){
   console.log('The answer is ', answer); //should console.log 12
@@ -72,8 +78,9 @@ multiply(4, 3, function(answer){
 
 
 
-  //Code Here for contains
-
+function contains(thyArray,item,f){
+  f(thyArray.indexOf(item)>-1);
+}
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 contains(names, 'Colt', function(result){
   if(result === true){
@@ -92,7 +99,15 @@ contains(names, 'Colt', function(result){
 
 
 
-    //Code Here for uniq
+function uniq(thyArray,f){
+  var returnfellow = [];
+  for(var i=0;i<thyArray.length;i++){
+    if(returnfellow.indexOf(thyArray[i])=== -1){
+      returnfellow.push(thyArray[i]);
+    }
+  }
+  f(returnfellow);
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 uniq(names, function(uniqArr){
@@ -108,7 +123,11 @@ uniq(names, function(uniqArr){
 
 
 
-    //Code Here for each
+function each(thyArray,f){
+  for(var i=0;i<thyArray.length;i++){
+    f(thyArray[i],i);
+  }
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 each(names, function(item, indice){
@@ -125,7 +144,13 @@ each(names, function(item, indice){
 
 
 
- //code here for getUserById
+function getUserById(thyArray,id,f){
+  for(var i=0;i<thyArray.length;i++){
+    if(thyArray[i].id === id){
+      f(thyArray[i]);
+    }
+  }
+}
 
 var users = [
   {
